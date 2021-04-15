@@ -7,7 +7,7 @@
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
           integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" rel="stylesheet">
 </head>
-<body>
+<body onload="onclickDrawHandler()">
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
@@ -73,7 +73,7 @@
             </div>
             <div>
                 <div class="container">
-                    <button class="btn btn-primary btn-lg" onclick="drawTriangle()" type="button">Draw!</button>
+                    <button id="draw-btn" class="btn btn-primary btn-lg" onclick="onclickDrawHandler()" type="button">Draw!</button>
                 </div>
             </div>
             <div>

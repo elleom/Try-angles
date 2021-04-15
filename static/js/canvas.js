@@ -1,5 +1,6 @@
 
 const getUserInput = () =>  {
+
     let x1 = 0, y1 = 0, x2 = 0, y2 = 0, x3 = 0, y3 = 0;
     let coordinates = [x1, y1, x2, y2, x3, y3]
     let userInput = []
@@ -13,8 +14,9 @@ const getUserInput = () =>  {
         i++
         userInput.push(element)
     });
+    console.log('click')
 
-    console.log(userInput)
+    drawTriangle()
 
 
 }
@@ -87,7 +89,10 @@ const drawAxis = () => {
         contextAxisY.stroke();
         contextAxisY.fillText(y.toString(), 0, y - 5);
     }
+}
 
+const onclickDrawHandler = () => {
+    document.getElementById('draw-btn').addEventListener('click', getUserInput)
 }
 
 
