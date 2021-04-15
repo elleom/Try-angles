@@ -3,23 +3,26 @@ const getUserInput = () =>  {
     let x1 = 0, y1 = 0, x2 = 0, y2 = 0, x3 = 0, y3 = 0;
     let userInput = [x1, y1, x2, y2, x3, y3]
     let inputs = document.getElementsByTagName('input')
-
     let i = 0
 
+    for (let i = 0; i < inputs.length; i++){
+        if (inputs[i].value == ""){
+            alert('fill all!')
+            break;
+        }
+        userInput[i] = inputs[i].value;
+    }
+    /*
     userInput.forEach(element => {
+
         element = inputs[i].value
         //console.log(inputs[i].value)
         userInput[i] = element;
         i++
 
-    });
-
+    });*/
     console.log(userInput.length);
-
-
-    drawTriangle(userInput)
-
-
+    drawTriangle(userInput);
 }
 const drawTriangle = (userInput) => {
     let canvas = document.querySelector("#myCanvas");
@@ -32,7 +35,7 @@ const drawTriangle = (userInput) => {
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     //radians
-    let height = (x1-y1) * Math.cos(Math.PI / 6);
+    //let height = (x1-y1) * Math.cos(Math.PI / 6);
 
     context.beginPath();
     context.moveTo(userInput[0], userInput[1]);
@@ -90,9 +93,11 @@ const drawAxis = () => {
     }
 }
 
-const onclickDrawHandler = () => {
+const onLoadHandler = () => {
     document.getElementById('draw-btn').addEventListener('click', getUserInput)
+    console.log('loaded')
 }
+
 
 
 
