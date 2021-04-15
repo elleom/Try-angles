@@ -1,12 +1,20 @@
 
 const getUserInput = () =>  {
-    let x1, y1, x2, y2, x3, y3;
-    let  coordinates = [x1, y1, x2, y2, x3, y3]
+    let x1 = 0, y1 = 0, x2 = 0, y2 = 0, x3 = 0, y3 = 0;
+    let coordinates = [x1, y1, x2, y2, x3, y3]
+    let userInput = []
+    let inputs = document.getElementsByTagName('input')
 
-    const slog = (obj) => {
-        coordinates.forEach(coordinate => console.log(coordinate) )}
+    let i = 0
 
-    slog(coordinates);
+    coordinates.forEach(element => {
+        element = inputs[i].value
+        console.log(inputs[i].value)
+        i++
+        userInput.push(element)
+    });
+
+    console.log(userInput)
 
 
 }
@@ -49,9 +57,18 @@ const drawAxis = () => {
     contextAxisX.moveTo(25, 50);
     contextAxisX.lineTo(1000, 50);
     contextAxisX.stroke();
-    contextAxisX.font = '16px Arial'
-    contextAxisX.fillText('(x=0,y=0)', 5,40);
-    contextAxisX.fillText("(x=1000)", 900, 40 );
+    contextAxisX.font = '24px Arial'
+
+    contextAxisX.fillText("x", 980, 35);
+
+    contextAxisX.font = '14px Arial'
+    for (let x = 50; x < 1000; x += 50) {
+
+        contextAxisX.moveTo(x, 42);
+        contextAxisX.lineTo(x, 50);
+        contextAxisX.stroke();
+        contextAxisX.fillText(x.toString(), x, 40);
+    }
 
     canvas = document.querySelector("#canvasY");
     let contextAxisY = canvas.getContext('2d');
@@ -59,8 +76,17 @@ const drawAxis = () => {
     contextAxisY.moveTo(25, 0);
     contextAxisY.lineTo(25, 570);
     contextAxisY.stroke();
-    contextAxisY.font = '16px Arial'
-    contextAxisY.fillText("(y=600)", 1, 590 );
+    contextAxisY.font = '14px Arial'
+    contextAxisY.fillText("y", 1, 590);
+
+    contextAxisX.font = '14px Arial'
+    for (let y = 50; y <= 550; y += 50) {
+
+        contextAxisY.moveTo(20, y);
+        contextAxisY.lineTo(30, y);
+        contextAxisY.stroke();
+        contextAxisY.fillText(y.toString(), 0, y - 5);
+    }
 
 }
 
